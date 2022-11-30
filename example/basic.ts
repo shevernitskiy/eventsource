@@ -1,4 +1,4 @@
-import { EventSourceServer } from '../mod.ts'
+import { EventSourceServer } from 'https://deno.land/x/eventsourceserver/mod.ts'
 
 const server = new EventSourceServer({ port: 4505 })
 

@@ -3,7 +3,7 @@
 Basic implemetion of server for EventSource. It handles tcp keep-alive 'text/event-stream' client connections. Supports broadcasting.
 
 ```ts
-import { EventSourceServer } from '../mod.ts'
+import { EventSourceServer } from 'https://deno.land/x/eventsourceserver/mod.ts'
 
 const server = new EventSourceServer({ port: 4505 })
 
