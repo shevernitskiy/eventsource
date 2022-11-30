@@ -20,6 +20,11 @@ export class EventSourceServer extends EventEmitter<EventMap> {
     this.start()
   }
 
+  /**
+   * It removes the connection from the list of connections and emits a disconnect event.
+   * @param {number} conn_rid - The connection ID
+   * @param [by_remote=false] - boolean
+   */
   close(conn_rid: number, by_remote = false): void {
     this.emit('disconnect', { conn_rid: conn_rid, by_remote: by_remote })
     if (this.conns.has(conn_rid)) {
@@ -27,6 +32,10 @@ export class EventSourceServer extends EventEmitter<EventMap> {
     }
   }
 
+  /**
+   * It takes a string as an argument, and then sends that string to each connection in the conns array
+   * @param {string} payload - The data to send to the client.
+   */
   broadcast(payload: string): void {
     this.conns.forEach((conn) => {
       conn.send(payload)
